@@ -40,3 +40,27 @@ document.addEventListener("DOMContentLoaded", function () {
         //Returning the created metric card
         return metricDiv; 
     }
+
+    //Task 2 - Updated Metric Cards via Array Conversion
+
+    //Creating and appending more metric cards - using both dashBoardDiv and dashBoardDivAlt to prove they are the same
+    dashBoardDivAlt.appendChild(createMetricCard("profitCard", "Profit", 80)); 
+    dashBoardDiv.appendChild(createMetricCard("expensesCard", "Expenses", 50)); 
+
+    //Selecting all metric cards
+    const metricCards = document.querySelectorAll(".metric-card"); 
+
+    //Converting the NodeList to an array
+    const metricCardsArray = Array.from(metricCards); 
+
+    //Looping through each metric card to update its content and style
+    metricCardsArray.forEach((card) => {
+        //Selecting the <h3> inside the card
+        const myHeading = card.querySelector("h3"); 
+
+        //Appending " - Updated" to the title
+        myHeading.textContent += " - Updated"; 
+
+        //Changing the background color to orange
+        card.style.backgroundColor = "orange"; 
+    });
