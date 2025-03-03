@@ -64,3 +64,35 @@ document.addEventListener("DOMContentLoaded", function () {
         //Changing the background color to orange
         card.style.backgroundColor = "orange"; 
     });
+
+    //Task 3 - Implemented Dynamic Inventory List
+
+//Function to add an inventory item dynamically
+function addInventoryItem(itemName) {
+    //Selecting the inventory list
+    const inventoryList = document.getElementById("inventoryList"); 
+
+    //Creating a new list item for the new inventory item
+    const newItem = document.createElement("li"); 
+
+    //Assigning the class "product-item"
+    newItem.setAttribute("class", "product-item"); 
+
+    //Settting a custom data attribute with the product name
+    newItem.setAttribute("data-product", itemName); 
+
+    //Setting the text content to the item name
+    newItem.textContent = itemName; 
+
+    //Adding the event listener to remove the item when clicked
+    newItem.addEventListener("click", function () {
+        //Removing the clicked item from the list
+        inventoryList.removeChild(newItem); 
+
+        //Logging the removed item
+        console.log(`Removed item: ${itemName}`); 
+    });
+
+    //Appending the new item to the inventory list
+    inventoryList.appendChild(newItem); 
+}
